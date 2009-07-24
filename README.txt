@@ -10,6 +10,13 @@ Command line uploader for pickhost.eu
 
   pickhost filename
 
+for authentication create a ~/pickhost-cli.yml:
+
+  user: your pickhost login
+  token: your api token
+
+your API token be found in your account settings.
+
 == INSTALL:
 
 * gem install Hoodow-pickhost-cli

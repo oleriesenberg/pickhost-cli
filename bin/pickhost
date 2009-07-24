@@ -2,12 +2,15 @@
 
 =begin
 
+ inspired by defunkt's gist ( http://github.com/defunkt/gist )
+
 USE:
 
   pickhost <filename>
 
 =end
 
+require 'yaml'
 require 'json'
 require 'httpclient'
 
@@ -21,7 +24,7 @@ module Pickhost
 
   def upload(file)
     url = URI.parse('http://pickhost.eu/api/upload')
-    response = JSON.parse( HTTPClient.post(url, { :file => File.new(file) }).body.content )
+    response = JSON.parse( HTTPClient.post(url, { :file => File.new(file) }.merge(auth)).body.content )
     copy response["image"]["public_view_url"]
   end
 
@@ -42,6 +45,13 @@ private
     end
 
     content
+  end
+
+  def auth
+    path = File.expand_path("~#{ENV['USER']}/.pickhost-cli.yml")
+    hsh = File.exist?(path) ? YAML.load_file(path) : {}
+
+    hsh
   end
 end
 
