@@ -1,0 +1,48 @@
+#!/usr/bin/env ruby                                  
+
+=begin
+
+USE:
+
+  pickhost <filename>
+
+=end
+
+require 'json'
+require 'httpclient'
+
+module Pickhost
+  extend self
+
+  def parse(input)
+    return help if input == '-h' || input.nil? || input[/help/]
+    upload([Dir.pwd, input].join('/'))
+  end
+
+  def upload(file)
+    url = URI.parse('http://pickhost.eu/api/upload')
+    response = JSON.parse( HTTPClient.post(url, { :file => File.new(file) }).body.content )
+    copy response["image"]["public_view_url"]
+  end
+
+  def help
+    "USE:\n  " + File.read(__FILE__).match(/USE:(.+?)=end/m)[1].strip
+  end
+
+private
+  # stolen from defunkt's gist ( http://github.com/defunkt/gist )
+  def copy(content)
+    case RUBY_PLATFORM
+    when /darwin/
+      return content if `which pbcopy`.strip == ''
+      IO.popen('pbcopy', 'r+') { |clip| clip.puts content }
+    when /linux/
+      return content if `which xclip 2> /dev/null`.strip == ''
+      IO.popen('xclip', 'r+') { |clip| clip.puts content }
+    end
+
+    content
+  end
+end
+
+puts Pickhost.parse(ARGV.first)
