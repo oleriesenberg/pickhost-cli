@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email = ["or@oleriesenberg.com"]
   s.executables = ["pickhost"]
   s.extra_rdoc_files = ["History.txt", "Manifest.txt", "README.txt"]
-  s.files = [".autotest", "History.txt", "Manifest.txt", "README.txt", "Rakefile", "bin/pickhost", "lib/pickhost_cli.rb", "test/test_pickhost_cli.rb"]
+  s.files = ["History.txt", "Manifest.txt", "README.txt", "Rakefile", "bin/pickhost", "lib/pickhost_cli.rb", "test/test_pickhost_cli.rb"]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/Hoodow/pickhost-cli}
   s.rdoc_options = ["--main", "README.txt"]
