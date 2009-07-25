@@ -10,6 +10,7 @@ USE:
 
 =end
 
+require 'pathname'
 require 'yaml'
 require 'json'
 require 'httpclient'
@@ -19,7 +20,7 @@ module Pickhost
 
   def parse(input)
     return help if input == '-h' || input.nil? || input[/help/]
-    upload([Dir.pwd, input].join('/'))
+    upload(Pathname(input).realpath)
   end
 
   def upload(file)
