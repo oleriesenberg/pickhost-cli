@@ -24,8 +24,9 @@ module Pickhost
   end
 
   def upload(file)
-    url = URI.parse('http://pickhost.eu/api/upload')
+    url = URI.parse('http://localhost:3000/api/upload')
     response = JSON.parse( HTTPClient.post(url, { :file => File.new(file) }.merge(auth)).body.content )
+    return response["errors"] if response["errors"]
     copy response["image"]["public_view_url"]
   end
 

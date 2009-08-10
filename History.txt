@@ -1,3 +1,7 @@
+=== 0.1.2 / 2009-08-10
+
+* return errors
+
 === 0.1.1 / 2009-07-25
 
 * fixed a bug with absolute paths
