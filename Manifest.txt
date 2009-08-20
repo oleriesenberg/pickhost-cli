@@ -1,8 +1,0 @@
-History.txt
-Manifest.txt
-README.txt
-Rakefile
-bin/pickhost
-lib/pickhost_cli.rb
-pickhost-cli.gemspec
-test/test_pickhost_cli.rb
