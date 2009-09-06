@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{pickhost-cli}
-  s.version = "0.1.3"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ole Riesenberg"]
-  s.date = %q{2009-08-20}
+  s.date = %q{2009-09-06}
   s.default_executable = %q{pickhost}
   s.email = %q{or@oleriesenberg.com}
   s.executables = ["pickhost"]
