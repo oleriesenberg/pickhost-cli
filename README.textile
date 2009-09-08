@@ -1,12 +1,12 @@
-= pickhost_cli
+h1. pickhost_cli
 
 * http://github.com/Hoodow/pickhost-cli
 
-== DESCRIPTION:
+h2. DESCRIPTION:
 
-Command line uploader for pickhost.eu
+Command line uploader for "http://pickhost.eu":pickhost.eu
 
-== SYNOPSIS:
+h2. SYNOPSIS:
 
   pickhost filename
 
@@ -17,11 +17,11 @@ for authentication create a ~/pickhost-cli.yml:
 
 your API token be found in your account settings.
 
-== INSTALL:
-
+h2. INSTALL:
+* gem sources -a http://gems.github.com (you only have to do this once)
 * gem install Hoodow-pickhost-cli
 
-== LICENSE:
+h2. LICENSE:
 
 (The MIT License)
 
