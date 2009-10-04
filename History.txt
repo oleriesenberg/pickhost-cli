@@ -1,3 +1,7 @@
+=== 0.3.0 / 2009-10-04
+
+* try to notify user via kdialog
+
 === 0.2.0 / 2009-09-06
 
 * include client_key in POST
