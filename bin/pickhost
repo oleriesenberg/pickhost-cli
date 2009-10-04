@@ -44,11 +44,18 @@ private
       return content if `which pbcopy`.strip == ''
       IO.popen('pbcopy', 'r+') { |clip| clip.puts content }
     when /linux/
+      notify(content)
       return content if `which xclip 2> /dev/null`.strip == ''
       IO.popen('xclip', 'r+') { |clip| clip.puts content }
     end
 
     content
+  end
+
+  def notify(content)
+    unless `which kdialog 2> /dev/null`.strip == ''
+      `kdialog --passivepopup "Image uploaded to Pic(k)host:\n\n#{content}" 5`
+    end 
   end
 
   def auth
