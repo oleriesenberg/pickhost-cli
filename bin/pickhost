@@ -24,7 +24,7 @@ module Pickhost
   end
 
   def upload(file)
-    url = URI.parse('http://pickhost.eu/api/upload')
+    url = URI.parse('https://pickhost.eu/api/upload')
     response = JSON.parse(
       HTTPClient.post(url, { :client_key => "54c56f1de2678ac4d32aa19fb66fe06c",
                              :file => File.new(file) }.merge(auth)).body.content )
